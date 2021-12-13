@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-dark navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon">
     <%= link_to root_path, class: "navbar-brand" do %>
       <h3 id='title-navbar'>WatchList</h3>
     <% end %>
@@ -8,11 +8,11 @@
     </button>
 
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
           <li class="nav-item dropdown">
-            <%= image_tag "popcorn.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { 'bs-toggle' => "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+            <%= image_tag "popcorn.png", class: "avatar dropdown-toggle", id: "navbarDarkDropdownMenuLink", data: { 'bs-toggle' => "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
               <%= link_to "Create a new list", "#", class: "dropdown-item" %>
               <%= link_to "My lists", "#", class: "dropdown-item" %>
             </div>
