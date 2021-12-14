@@ -23,3 +23,13 @@
   color: $black;
   height: 50vh;
 }
+
+.banner-show {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  height: 30vh;
+  background-size: center;
+}
