@@ -13,8 +13,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "popcorn.png", class: "logo-navbar dropdown-toggle", id: "navbarDarkDropdownMenuLink", data: { 'bs-toggle' => "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <%= link_to "Create a new list", "#", class: "dropdown-item" %>
-              <%= link_to "My lists", "#", class: "dropdown-item" %>
+              <%= link_to "My lists", lists_path, class: "dropdown-item" %>
             </div>
           </li>
       </ul>

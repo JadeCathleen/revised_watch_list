@@ -1,12 +1,16 @@
-.cards {
+.list-cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 7vh 20vw;
 }
 
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 20vh;
+  height: 27vh;
+  width: 17vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,4 +20,34 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  .edit-link {
+    border: none;
+    background: none;
+    color: $ivory;
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 70%;
+    &:hover {
+      color: $orange;
+    }
+  }
+  .list-name {
+    color: $ivory;
+    text-decoration: none;
+     &:hover {
+       color: $orange;
+     }
+  }
+  .delete-btn {
+    color: $ivory;
+    text-decoration: none;
+    opacity: 0.7;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    &:hover {
+      color: $orange;
+    }
+  }
 }
