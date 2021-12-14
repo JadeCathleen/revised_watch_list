@@ -1,0 +1,69 @@
+<div class="banner banner-index" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dodtdqhy0/image/upload/v1639479664/pexels-megha-mangal-806880_dzml4o.jpg);">
+  <div class="container">
+    <h1>My lists of movies to watch</h1>
+    <button type="button" class="btn btn-flat btn-main mt-3" data-bs-toggle="modal" data-bs-target="#createModal">
+      Add a movies list
+    </button>
+  </div>
+</div>
+
+<!-- Modal new list -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create your own movies list</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form', list: @list %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="list-cards">
+  <% @lists.each do |list| %>
+    <% if list.photo.attached? %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>');">
+        <%= link_to list.name, list_path(list), class:'list-name'  %>
+        <button type="button" class="edit-link" data-bs-toggle="modal" data-bs-target="#editModal">
+          <i class="fas fa-pen"></i>
+        </button>
+        <%= link_to list_path(list),
+        method: :delete,
+        class: 'delete-btn',
+        data: { confirm: "Are you sure you want to delete the movies' list #{list.name}?" } do %>
+          <i class="fas fa-times"></i>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="card-category" style="background-color: #FF5E5B">
+        <%= link_to list.name, list_path(list), class: 'list-name' %>
+        <button type="button" class="edit-link" data-bs-toggle="modal" data-bs-target="#editModal">
+          <i class="fas fa-pen"></i>
+        </button>
+        <%= link_to list_path(list),
+        method: :delete,
+        class: 'delete-btn',
+        data: { confirm: "Are you sure you want to delete the movies' list #{list.name}?" } do %>
+          <i class="fas fa-times"></i>
+        <% end %>
+      </div>
+    <% end %>
+    <!-- Modal edit list -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit list <%= list.name %></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render 'form', list: list %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

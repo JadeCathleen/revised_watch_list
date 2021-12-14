@@ -1,0 +1,21 @@
+<div class="banner banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>);">
+  <h1>Movies in the list "<%= @list.name %>"</h1>
+    <button type="button" class="btn btn-flat btn-main mt-3" data-bs-toggle="modal" data-bs-target="#addBookmarkModal">
+      Add a movie to <%= @list.name %>
+    </button>
+</div>
+
+<!-- Modal new list -->
+<div class="modal fade" id="addBookmarkModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a movie to <%= @list.name %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form', list: @list %>
+      </div>
+    </div>
+  </div>
+</div>
