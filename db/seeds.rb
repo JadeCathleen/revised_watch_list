@@ -8,12 +8,15 @@
 
 url = 'http://tmdb.lewagon.com/movie/top_rated'
 image_base_url = 'https://image.tmdb.org/t/p/w200'
-document = JSON.parse(URI.open(url).read)
-document['results'].last(50).each do |movie|
-  title = movie['title']
-  overview = movie['overview']
-  rating = movie['vote_average']
-  poster_url = "#{image_base_url}#{movie['poster_path']}"
-  puts "Creating #{title}..."
-  Movie.create(title: title, overview: overview, rating: rating, poster_url: poster_url)
+
+7.times do |i|
+  document = JSON.parse(URI.open("#{url}?page=#{i + 1}").read)
+  document['results'].each do |movie|
+    title = movie['title']
+    overview = movie['overview']
+    rating = movie['vote_average']
+    poster_url = "#{image_base_url}#{movie['poster_path']}"
+    puts "Creating #{title}..."
+    Movie.create(title: title, overview: overview, rating: rating, poster_url: poster_url)
+  end
 end
